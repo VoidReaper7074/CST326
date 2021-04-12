@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class buildManager : MonoBehaviour
+public class BuildManager : MonoBehaviour
 {
-    public static buildManager instance;
+    public static BuildManager instance;
 
     private void Awake()
     {
@@ -16,15 +16,43 @@ public class buildManager : MonoBehaviour
         instance = this;
     }
 
-    public GameObject standardTurretPrefab;
-    void Start ()
+    private TurretBlueprint turretToBuild;
+    private Nodes selectedNode;
+
+    public NodeUI nodeUI;
+
+    public bool CanBuild {  get { return turretToBuild != null; } }
+    public bool HasMoney { get { return PlayerStats.Money >= turretToBuild.cost; } }
+
+
+    public void SelectedNode(Nodes node)
     {
-        turretToBuild = standardTurretPrefab;
+        if(selectedNode == node)
+        {
+            DeselectNode();
+            return;
+        }
+
+        selectedNode = node;
+        turretToBuild = null;
+
+        nodeUI.SetTarget(node);
     }
 
-    private GameObject turretToBuild;
+    public void DeselectNode()
+    {
+        selectedNode = null;
+        nodeUI.Hide();
+    }
 
-    public GameObject GetTurretToBuild()
+
+    public void SelectTurretToBuild (TurretBlueprint turret)
+    {
+        turretToBuild = turret;
+         DeselectNode();
+    }
+
+    public TurretBlueprint GetTurretToBuild()
     {
         return turretToBuild;
     }

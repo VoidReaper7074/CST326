@@ -4756,6 +4756,8 @@ GameObject:
   - component: {fileID: 419848}
   - component: {fileID: 9581464}
   - component: {fileID: 689229141}
+  - component: {fileID: 2012604786891620826}
+  - component: {fileID: 8849119840591033531}
   m_Layer: 0
   m_Name: SA_Zombie_Prostitute
   m_TagString: Enemy
@@ -4859,7 +4861,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69dca85b28758944485b0321d044a9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
+  health: 100
+  bounty: 50
+  deathEffect: {fileID: 4902439956737573515, guid: c7d11f325eeaf5f4f93b4e0113508e1b, type: 3}
+--- !u!136 &2012604786891620826
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177384}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 3.3669431
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.1834716, z: 0}
+--- !u!114 &8849119840591033531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f10fa0e3a4d6f4dbad948ca5227fc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &177512
 GameObject:
   m_ObjectHideFlags: 0
